@@ -27,7 +27,12 @@ public class DateUtilities {
         if(d == null || f == null){
             throw new IllegalArgumentException("Date " + CANNOTBENULL);
         }
-        String fDate = d.format(f);
+        String fDate = null;
+        try {
+        fDate = d.format(f);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
         return fDate;
     }
     
@@ -41,7 +46,12 @@ public class DateUtilities {
         if(d == null){
             throw new IllegalArgumentException("Date " + CANNOTBENULL);
         }
-        String fDate = d.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        String fDate = null;
+        try{
+        fDate = d.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
         return fDate;
     }
     
