@@ -77,11 +77,7 @@ public class DateUtilities {
             throw new IllegalArgumentException("String to local Date " + CANNOTBENULL + " or empty.");
         }
         LocalDateTime parseDate = null;
-        try {
-            parseDate = LocalDateTime.parse(d);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        parseDate = LocalDateTime.parse(d);
         return parseDate;
     }
     
