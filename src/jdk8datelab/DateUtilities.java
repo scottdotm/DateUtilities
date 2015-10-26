@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 public class DateUtilities {
     
     private static final String CANNOTBENULL = "cannot be null";
+    
     /**
      * Returns a String of a LocalDate object.
      * 
@@ -26,16 +27,14 @@ public class DateUtilities {
             throw new IllegalArgumentException("Date " + CANNOTBENULL);
         }
         String fDate = null;
-        try {
         fDate = d.format(f);
-        } catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
+        
         return fDate;
     }
     
     /**
-     * Returns a String of a LocalDate object.
+     * Returns a String of a LocalDate object. ISO_LOCAL_DATE format.
+     * 
      * @param d
      * @return date string
      * @throws IllegalArgumentException
@@ -45,11 +44,7 @@ public class DateUtilities {
             throw new IllegalArgumentException("Date " + CANNOTBENULL);
         }
         String fDate = null;
-        try{
         fDate = d.format(DateTimeFormatter.ISO_LOCAL_DATE);
-        } catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
         return fDate;
     }
     
@@ -65,11 +60,8 @@ public class DateUtilities {
             throw new IllegalArgumentException("String to local Date " + CANNOTBENULL + " or empty.");
         }
         LocalDate parseDate = null;
-        try {
-            parseDate = LocalDate.parse(d);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        parseDate = LocalDate.parse(d);
+ 
         return parseDate;
     }
     
@@ -106,4 +98,6 @@ public class DateUtilities {
     
     
 }
+//singleton design pattern
+//factory pattern
 
