@@ -95,38 +95,16 @@ public class DateUtilities {
         return parseDate;
     }
     
-    /** dateDiff() is the difference between two dates using LocalDate and a
-     * TemporalUnit. Only for LocalDate. TemporalUnit is used
-     * to specify what kind of unit you want the difference back in (e.g. Days,
-     * Months, etc.) Anything less than a day for TemporalUnit will not be
-     * accepted and will throw and exception.
+    /**
+     * Add days onto a certain date
      * 
-     * @param differance between firstDate and secondDate temporalUnit
-     * @param firstDate
-     * @param secondDate
-     * @return
-     * @throws IllegalArgumentException
+     * @param d = LocalDate
+     * @param daysToAdd = days to add on
+     * @return d + daysToAdd
      */
-    public long dateDiff(TemporalUnit temporalUnit, LocalDate firstDate, LocalDate secondDate) throws IllegalArgumentException {
-        if (firstDate == null) {
-            throw new IllegalArgumentException("First date " + CANNOTBENULL);
-        } else if (secondDate == null) {
-            throw new IllegalArgumentException("Second date " + CANNOTBENULL);
-        } else if (temporalUnit == null || temporalUnit == ChronoUnit.HOURS || temporalUnit == ChronoUnit.MINUTES || temporalUnit == ChronoUnit.SECONDS || temporalUnit == ChronoUnit.MILLIS || temporalUnit == ChronoUnit.MICROS || temporalUnit == ChronoUnit.NANOS) {
-            throw new IllegalArgumentException("TemporalUnit is null or has a unit of time less than a day");
-        }
-        LocalDate startDate = firstDate;
-        LocalDate endDate = secondDate;
-
-        long diff = 0;
-        try {
-            diff = temporalUnit.between(startDate, endDate);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return diff;
-    }
+    public LocalDate addDays(LocalDate d,long daysToAdd){
+       return d.plusDays(daysToAdd);
+   }
     
     
 }
